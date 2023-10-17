@@ -5,8 +5,7 @@ pipeline {
         stage("Merge to Main") {
             steps {
                 script {
-                    git branch: "main"
-                    url: "https://github.com/Norbert00/rectangle_area_calculator_CI_CD_process.git"
+                    sh "git checkout main"
                     sh "git merge dev"
                     sh "git push origin main"
                 }
