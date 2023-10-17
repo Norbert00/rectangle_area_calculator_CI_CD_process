@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker {
-            image: "norbert00/python3.10_poetry:v1"
-            args "-u root:root"
+            image "norbert00/python3.10_poetry:v1"
+            args '-u root:root'
         }
     }
 
