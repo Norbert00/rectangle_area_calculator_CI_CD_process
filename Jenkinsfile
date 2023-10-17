@@ -32,6 +32,17 @@ pipeline {
                 }
             }
         }
+        post {
+            success {
+                script {
+                    currentBuild.resultIsBetterOrEqualTo("SUCCESS")
+                    build job: "merge_dev_to_main_rectangle_area_calculator_CI"
+                }
+            }
+            failure {
+                echo "Job failed, not triggering merge."
+            }
+        }
     }
     post {
         always {
