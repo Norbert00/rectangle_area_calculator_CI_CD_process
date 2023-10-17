@@ -1,7 +1,9 @@
 pipeline {
     agent {
-        image: "norbert00/python3.10_poetry:v1"
-        args "-u root:root"
+        docker {
+            image: "norbert00/python3.10_poetry:v1"
+            args "-u root:root"
+        }
     }
 
     stages {
