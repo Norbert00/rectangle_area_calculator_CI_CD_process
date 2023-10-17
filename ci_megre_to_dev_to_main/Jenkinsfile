@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+
+    stages {
+        stage("Merge to Main") {
+            steps {
+                script {
+                    git branch: "main"
+                    sh "git merge dev"
+                    sh "git push origin main"
+                }
+            }
+        }
+    }
+}
