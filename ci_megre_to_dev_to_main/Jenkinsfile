@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage("Merge to Main") {
             steps {
-                withCredential([usernamePassword(credentialsId: '82fecaa5-889b-4d66-b0ae-f3f0c998438c', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
+                withCredentials([usernamePassword(credentialsId: '82fecaa5-889b-4d66-b0ae-f3f0c998438c', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
                 script {
                     sh "git checkout main"
                     sh "git merge origin/dev"
