@@ -39,9 +39,6 @@ pipeline {
                     build job: "merge_dev_to_main_rectangle_area_calculator_CI"
                 }
             }
-            failure {
-                echo "Job failed, not triggering merge."
-            }
         }
     }
     post {
