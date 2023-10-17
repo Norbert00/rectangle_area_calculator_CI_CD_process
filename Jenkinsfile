@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage ("Setup docker container") {
+        stage("Setup docker container") {
             steps {
                 sh """
                     pip install --upgrade pip
@@ -18,22 +18,22 @@ pipeline {
                 """
             }
         }
-        stage ("Run test") {
+        stage("Run test") {
             steps {
                 script {
                     sh "poetry run pytest"
                 }
             }
         }
-        stage ("Test coverage") {
+        stage("Test coverage") {
             steps {
                 script {
                     sh "poetry run poetry run pytest --cov=rectangle_calculator"
                 }
             }
         }
-        post {
-            success {
+        stage("Triger job merge dev to main") {
+            steps {
                 script {
                     currentBuild.resultIsBetterOrEqualTo("SUCCESS")
                     build job: "merge_dev_to_main_rectangle_area_calculator_CI"
