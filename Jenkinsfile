@@ -13,6 +13,7 @@ pipeline {
                     pip install --upgrade pip
                     poetry env use python3.10
                     poetry update package
+                    poetry config virtualenvs.in-project true 
                     poetry install                
                 """
             }
