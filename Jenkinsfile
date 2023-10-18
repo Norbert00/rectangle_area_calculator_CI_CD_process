@@ -10,19 +10,11 @@ pipeline {
         stage("Setup docker container") {
             steps {
                 sh """
-                    pip install --upgrade pip
                     poetry config virtualenvs.in-project true
                     poetry env use python3.10
                     poetry update package
                     poetry install                
                 """
-            }
-        }
-        stage("Run test") {
-            steps {
-                script {
-                    sh "poetry run pytest"
-                }
             }
         }
         stage("Test coverage") {
