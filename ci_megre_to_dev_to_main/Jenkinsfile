@@ -8,8 +8,7 @@ pipeline {
                     git branch: 'main',
                     credentialsId: '82fecaa5-889b-4d66-b0ae-f3f0c998438c',
                     url: 'https://github.com/Norbert00/rectangle_area_calculator_CI_CD_process.git'
-                    sh 'git merge origin/dev'
-                    sh 'git commit -m "Merged develop branch to main"'
+                    sh 'git merge dev'
                     sh 'git push origin main'
                 }
             }
