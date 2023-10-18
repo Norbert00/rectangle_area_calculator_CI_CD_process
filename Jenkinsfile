@@ -24,15 +24,6 @@ pipeline {
                 }
             }
         }
-        stage("Triger job merge dev to main") {
-            steps {
-                script {
-                    currentBuild.resultIsBetterOrEqualTo("SUCCESS")
-                    build job: "merge_dev_to_main_rectangle_area_calculator_CI"
-                }
-            }
-        }
-    }
     post {
         always {
             cleanWs()
