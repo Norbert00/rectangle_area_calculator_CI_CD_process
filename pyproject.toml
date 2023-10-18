@@ -14,3 +14,7 @@ pytest-cov = "^4.1.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+rectangle = 'rectangle_calculator.rectangle_calculator:main'
