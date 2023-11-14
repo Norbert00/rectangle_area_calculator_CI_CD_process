@@ -42,9 +42,12 @@ pipeline {
                             -X POST https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/check-runs"
                         
                         sh curlCommand
+                    }
                 }
             }
         }
+    }
+
     post {
         always {
             cleanWs()
