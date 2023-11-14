@@ -8,8 +8,8 @@ pipeline {
 
     environment {
         GITHUB_CREDENTIALS = credentials('github') // 'github' is the credentials ID
-        GITHUB_USERNAME = GITHUB_CREDENTIALS_USR
-        GITHUB_TOKEN = GITHUB_CREDENTIALS_PSW
+        GITHUB_USERNAME = "${GITHUB_CREDENTIALS_USR}"
+        GITHUB_TOKEN = "${GITHUB_CREDENTIALS_PSW}"
         REPO_OWNER = 'Norbert00'
         REPO_NAME = 'rectangle_area_calculator_CI_CD_process'
     }
