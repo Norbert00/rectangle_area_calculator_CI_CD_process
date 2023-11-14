@@ -40,6 +40,8 @@ pipeline {
                             -d '{\"conclusion\": \"success\", \"name\": \"Jenkins\", \"output\": {\"title\": \"Tests Passed\", \"summary\": \"All tests passed successfully.\"}}' \
                             -H 'Accept: application/vnd.github.v3+json' \
                             -X POST https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/check-runs"
+                        
+                        sh curlCommand
                 }
             }
         }
