@@ -32,20 +32,20 @@ pipeline {
                 }
             }
         }
-        stage("GitHub API Request") {
-            steps {
-                script {
-                    withCredentials([usernamePassword(credentialsId: GITHUB_CREDENTIALS, usernameVariable: 'GITHUB_USERNAME_USR', passwordVariable: 'GITHUB_USERNAME_PSW')]) {
-                        def curlCommand = "curl -u ${GITHUB_USERNAME_USR}:${GITHUB_USERNAME_PSW} \
-                            -d '{\"conclusion\": \"success\", \"name\": \"Jenkins\", \"output\": {\"title\": \"Tests Passed\", \"summary\": \"All tests passed successfully.\"}}' \
-                            -H 'Accept: application/vnd.github.v3+json' \
-                            -X POST https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/check-runs"
+        // stage("GitHub API Request") {
+        //     steps {
+        //         script {
+        //             withCredentials([usernamePassword(credentialsId: GITHUB_CREDENTIALS, usernameVariable: 'GITHUB_USERNAME_USR', passwordVariable: 'GITHUB_USERNAME_PSW')]) {
+        //                 def curlCommand = "curl -u ${GITHUB_USERNAME_USR}:${GITHUB_USERNAME_PSW} \
+        //                     -d '{\"conclusion\": \"success\", \"name\": \"Jenkins\", \"output\": {\"title\": \"Tests Passed\", \"summary\": \"All tests passed successfully.\"}}' \
+        //                     -H 'Accept: application/vnd.github.v3+json' \
+        //                     -X POST https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/check-runs"
                         
-                        sh curlCommand
-                    }
-                }
-            }
-        }
+        //                 sh curlCommand
+        //             }
+        //         }
+        //     }
+        // }
     }
     post {
         always {
