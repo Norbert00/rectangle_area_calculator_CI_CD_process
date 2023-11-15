@@ -47,13 +47,12 @@ pipeline {
             }
         }
     }
-
     post {
         always {
             cleanWs()
-            script {
-                sh "docker image prune -a"
-            }
+            // script {
+            //     sh "docker image prune -a"
+            // }
         }
     }
 }
