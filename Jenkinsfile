@@ -51,6 +51,9 @@ pipeline {
     post {
         always {
             cleanWs()
+            script {
+                sh "docker image prune -a"
+            }
         }
     }
 }
